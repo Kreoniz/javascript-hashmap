@@ -21,6 +21,15 @@ class HashMap {
   set(key, value) {
     const index = this.hash(key);
 
+    if (this.length() >= this.#capacity * this.#loadFactor) {
+      const entries = this.entries();
+      this.#capacity *= 2;
+      this.#buckets = Array(this.#capacity).fill(null);
+      for (let i = 0; i < entries.length; i += 1) {
+        this.set(entries[i][0], entries[i][1]);
+      }
+    }
+
     if (index < 0 || index >= this.#buckets.length) {
       throw new Error("Trying to access index out of bound");
     }
@@ -189,7 +198,7 @@ hashmap.set('apple', 'apricot');
 hashmap.remove('apple');
 
 let string = 'a';
-for (let i = 0; i < 4; i += 1) {
+for (let i = 0; i < 16; i += 1) {
   hashmap.set(string, string + string);
   string += 'a';
 }
