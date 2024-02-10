@@ -1,0 +1,16 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  singly-linked-lists:
+    specifier: ^1.0.0
+    version: 1.0.0
+
+packages:
+
+  /singly-linked-lists@1.0.0:
+    resolution: {integrity: sha512-AMCaqJ4MS3Wo84I4pU9MRtaIcujxTgvae783USXxxtiVBx+Yf+3lddUepnMqLgtorMMb9kshYNXtsAwFwPKPJg==}
+    dev: false
