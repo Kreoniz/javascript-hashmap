@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   singly-linked-lists:
-    specifier: ^1.0.0
-    version: 1.0.0
+    specifier: ^1.0.1
+    version: 1.0.1
 
 packages:
 
-  /singly-linked-lists@1.0.0:
-    resolution: {integrity: sha512-AMCaqJ4MS3Wo84I4pU9MRtaIcujxTgvae783USXxxtiVBx+Yf+3lddUepnMqLgtorMMb9kshYNXtsAwFwPKPJg==}
+  /singly-linked-lists@1.0.1:
+    resolution: {integrity: sha512-9HDTp7w4J1TzXTS6rzx25F7dDlKStvNK/bo/7AqaMUsOtGC2kJa10Z1shrxQsJU7MQ8ANPLXYuyXNJYMfoZTOQ==}
     dev: false

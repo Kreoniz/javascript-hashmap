@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "singly-linked-lists": "^1.0.0"
+    "singly-linked-lists": "^1.0.1"
   }
 }
