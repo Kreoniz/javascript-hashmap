@@ -1,7 +1,7 @@
 import Node from 'singly-linked-lists/node';
 import LinkedList from 'singly-linked-lists/linked-list';
 
-class HashMap {
+export default class HashMap {
   #capacity  = 16;
   #loadFactor = 0.75;
   #buckets = Array(this.#capacity).fill(null);
@@ -42,7 +42,6 @@ class HashMap {
       while (tmp !== null) {
         if (Object.keys(tmp.value).includes(key)) {
           tmp.value[key] = value;
-          return;
         }
         tmp = tmp.nextNode;
       }
@@ -112,7 +111,18 @@ class HashMap {
       return false;
     }
 
-    this.#buckets[index] = null;
+    let tmp = bucket.head();
+    let i = 0;
+    while (tmp !== null && !Object.keys(tmp.value).includes(key)) {
+      tmp = tmp.nextNode;
+      i += 1;
+    }
+
+    if (!tmp) {
+      return false;
+    }
+
+    this.#buckets[index].removeAt(i);
     return true;
   }
 
@@ -188,54 +198,3 @@ class HashMap {
     return array;
   }
 }
-
-const hashmap = new HashMap()
-
-hashmap.set('test', 'testValue');
-hashmap.set('test', 'newTestValue');
-hashmap.set('banana', 'orange');
-hashmap.set('apple', 'apricot');
-hashmap.remove('apple');
-
-let string = 'a';
-for (let i = 0; i < 16; i += 1) {
-  hashmap.set(string, string + string);
-  string += 'a';
-}
-
-console.log();
-console.log('GET:');
-console.log(hashmap.get('test'));
-console.log(hashmap.get('ash'));
-
-console.log();
-console.log('HAS:');
-console.log(hashmap.has('test'));
-console.log(hashmap.has('ash'));
-
-console.log();
-console.log('LENGTH:');
-console.log(hashmap.length());
-
-console.log();
-console.log('KEYS:');
-console.log(hashmap.keys());
-
-console.log();
-console.log('VALUES:');
-console.log(hashmap.values());
-
-console.log();
-console.log('ENTRIES:');
-console.log(hashmap.entries());
-
-console.log();
-console.log('CLEAR');
-hashmap.clear();
-
-console.log();
-console.log('ENTRIES:');
-console.log(hashmap.entries());
-
-console.log();
-console.log(hashmap);
